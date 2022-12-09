@@ -1,0 +1,34 @@
+<form class="m-4" [formGroup]="data.form" #f="ngForm" novalidate autocomplete="off">
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Date</mat-label>
+                <input matInput formControlName="date">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Time</mat-label>
+                <input matInput type="number" formControlName="time">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Patient</mat-label>
+                <mat-select formControlName="patient" [compareWith]="objectComparison">
+                    <mat-option *ngFor="let patient of data.patients" [value]="patient">
+                        {{patient.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="d-flex justify-content-end">
+        <div class="me-2">
+            <button mat-button (click)="submit()" class="bg-primary text-white">Submit</button>
+        </div>
+        <div class="ms-2">
+            <button mat-button class="bg-secondary text-white" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</form>

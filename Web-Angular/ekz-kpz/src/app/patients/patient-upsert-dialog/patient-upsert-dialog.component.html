@@ -1,0 +1,45 @@
+<form class="m-4" [formGroup]="data.form" #f="ngForm" novalidate autocomplete="off">
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Type</mat-label>
+                <input matInput formControlName="type">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="fill">
+                <mat-label>Owner Surname</mat-label>
+                <input matInput formControlName="ownerSurname">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <mat-form-field appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput formControlName="birthDate">
+            </mat-form-field>
+        </div>
+        <div class="col-4">
+            <mat-form-field appearance="fill">
+                <mat-label>Diagnosis</mat-label>
+                <input matInput formControlName="diagnosis">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="d-flex justify-content-end">
+        <div class="me-2">
+            <button mat-button (click)="submit()" class="bg-primary text-white">Submit</button>
+        </div>
+        <div class="ms-2">
+            <button mat-button class="bg-secondary text-white" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</form>
+

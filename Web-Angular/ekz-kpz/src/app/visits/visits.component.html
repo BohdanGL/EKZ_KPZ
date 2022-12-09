@@ -1,0 +1,26 @@
+<div class="m-2">
+    <button (click)="openDialog()" class="btn btn-primary">Add new</button>
+    <button (click)="goToPatients()" class="btn btn-primary mx-5">Go To Patients</button>
+</div>
+<table class="table table-striped mt-5" *ngIf="visits$ | async as visits">
+    <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Patient's name</th>
+          <th scope="col">Patient's type</th>
+          <th scope="col">Patient's diagnosis</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let visit of visits">
+        <td>{{visit.date}}</td>
+        <td>{{visit.time}}</td>
+        <td>{{visit.patient?.name}}</td>
+        <td>{{visit.patient?.type}}</td>
+        <td>{{visit.patient?.diagnosis}}</td>
+        <td class="control"><button (click)="openDialog(visit)" class="btn btn-primary w-100">Edit</button></td>
+        <td class="control"><button (click)="deleteVisit(visit.id!)" class="btn btn-danger w-100">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
